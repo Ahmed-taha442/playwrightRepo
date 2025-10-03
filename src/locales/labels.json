@@ -1,0 +1,20 @@
+{
+  "welcomePage": {
+    "serveTodayText": "How can we serve you today?",
+    "serviceName": "Pickup",
+    "branchName": "Branch Name",
+    "currentLanguage": "en",
+    "targetLanguage": "Arabic",
+    "arabicText": "مكان الفرع",
+    "branchesDropdown": "Branch location"
+  },
+  "menuPage": {
+    "exploreText": "Explore Our Menu",
+    "categoryLink": "Extras",
+    "changeButton": "Change",
+    "productName": "Cola",
+    "viewCartButton": "View Cart",
+    "addToCartButton": "Add to Cart",
+    "currency": "EG"
+  }
+}
