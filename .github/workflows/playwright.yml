@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main, master]
 
+# 👈 لازم ندي write permission
+permissions:
+  contents: write
+
 jobs:
   test:
     name: Run Playwright tests
@@ -15,8 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # need full history to allow gh-pages action to create commits/branches reliably
-          fetch-depth: 0
+          fetch-depth: 0 # 👈 مهم للـ gh-pages
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -49,5 +52,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-report
           publish_branch: gh-pages
-          # ensure force push to the branch in case of history divergence
           force_orphan: true
