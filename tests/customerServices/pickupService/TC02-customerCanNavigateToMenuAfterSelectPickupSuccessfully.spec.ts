@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import path from "path";
 dotenv.config({ path: path.resolve(__dirname, "../../environments.env") });
 import { WelcomePage } from "../../../src/pages/customerPages/welcomePage";
-import { MenuPage } from "../../../src/pages/customerPages/MenuPage";
+import { MenuPage } from "../../../src/pages/customerPages/menuPage";
 let welcomePage: WelcomePage;
 let menuPage: MenuPage;
 const customerUrl = process.env.Customer_Staging || "";
