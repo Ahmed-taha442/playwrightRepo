@@ -23,7 +23,6 @@ jobs:
       - name: Cache node modules and Playwright browsers
         uses: actions/cache@v4
         with:
-          # Cache npm cache and Playwright browsers to speed up runs
           path: |
             ~/.npm
             node_modules
@@ -39,11 +38,17 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        # run tests and generate an HTML report in playwright-report/
-        run: npx playwright test --reporter=html
+        # Run tests; Playwright config must include allure-playwright reporter
+        run: npx playwright test
 
-      - name: Upload Playwright HTML report
+      - name: Install allure-commandline
+        run: npm i -D allure-commandline@2 || true
+
+      - name: Generate Allure report
+        run: npx allure generate allure-results --clean -o allure-report
+
+      - name: Upload Allure report
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
-          path: playwright-report
+          name: allure-report
+          path: allure-report
